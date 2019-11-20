@@ -2,7 +2,7 @@ package com.wangj.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.wangj.dao.entity.User;
-import com.wangj.service.UserService;
+import com.wangj.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

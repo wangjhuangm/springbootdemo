@@ -1,14 +1,13 @@
-package com.wangj.service.impl;
+package com.wangj.service.impl.user;
 
 import com.alibaba.fastjson.JSONObject;
 import com.wangj.dao.UserMapper;
 import com.wangj.dao.entity.User;
-import com.wangj.service.UserService;
+import com.wangj.service.user.UserService;
 import com.wangj.util.RedisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;

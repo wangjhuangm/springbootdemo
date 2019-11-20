@@ -1,0 +1,3 @@
+threadpool:
+  core-size: 10
+  max-size: 20

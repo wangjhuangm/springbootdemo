@@ -1,4 +1,4 @@
-package com.wangj.service;
+package com.wangj.service.user;
 
 import com.wangj.dao.entity.User;
 

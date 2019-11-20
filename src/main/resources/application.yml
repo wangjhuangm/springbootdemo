@@ -20,3 +20,7 @@ mybatis:
 
 logging:
   config: classpath:conf/log4j2.xml
+
+threadPool:
+  coresize: 10
+  maxsize: 20
