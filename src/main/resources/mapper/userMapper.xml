@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.wangj.dao.UserMapper">
+    <!--<resultMap id="user" type="com.wangj.dao.entity.User">
+        <id property="id" column="id" jdbcType="INTEGER"></id>
+        <result property="name" column="name" jdbcType="VARCHAR"></result>
+        <result property="age" column="age" jdbcType="INTEGER"></result>
+        <result property="version" column="version" jdbcType="INTEGER"></result>
+    </resultMap>-->
+
+    <select id="getOne" resultType="com.wangj.dao.entity.User" >
+        SELECT id,name,age,version FROM user where id = #{id};
+    </select>
+
+    <select id="getAll" resultType="com.wangj.dao.entity.User" >
+        SELECT id,name,age,version FROM user;
+    </select>
+
+    <insert id="insert">
+        insert into user(name,age,version) values(#{name},#{age},#{version})
+        <selectKey resultType="INTEGER" keyProperty="id" order="AFTER">
+            SELECT id from user order by id desc limit 1
+        </selectKey>
+    </insert>
+
+    <update id="update">
+        update user set name=#{name},age=#{age},version=version+1 where id=#{id}
+        <selectKey resultType="INTEGER" keyProperty="version" order="AFTER">
+            SELECT version from user where id = #{id}
+        </selectKey>
+    </update>
+
+    <delete id="delete">
+        delete from user where id=#{id}
+    </delete>
+</mapper>

@@ -1,0 +1,22 @@
+server:
+  port: 8085
+
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://192.168.1.116:8066/TESTDB
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 192.168.1.116
+    port: 9999
+    password: 123456
+    lettuce:
+      shutdown-timeout: 5000
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+logging:
+  config: classpath:conf/log4j2.xml
