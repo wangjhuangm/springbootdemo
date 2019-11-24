@@ -16,4 +16,8 @@ public interface UserMapper {
     void update(User user);
 
     void delete(int id);
+
+    void multiInsert(List<User> users);
+
+    List<User> getAll(String name);
 }

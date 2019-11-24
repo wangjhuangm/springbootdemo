@@ -47,4 +47,10 @@ public class UserController {
         User user = userService.delete(id);
         return "delete successful! " + JSONObject.toJSONString(user);
     }
+
+    @RequestMapping(value = "/multi", method = RequestMethod.POST)
+    public String multiInsert(@RequestBody List<User> users) {
+        userService.multiInsert(users);
+        return "multi insert successful! " + JSONObject.toJSONString(users);
+    }
 }

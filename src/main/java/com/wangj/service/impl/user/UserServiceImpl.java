@@ -91,4 +91,10 @@ public class UserServiceImpl implements UserService {
         redisUtil.removeForList(REDIS_PREFIX + "ALL", user, 0);
         return user;
     }
+
+    @Override
+    public void multiInsert(List<User> users) {
+        userMapper.multiInsert(users);
+        logger.info("multi insert success");
+    }
 }

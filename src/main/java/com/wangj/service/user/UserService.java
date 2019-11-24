@@ -15,4 +15,6 @@ public interface UserService {
     void update(User user);
 
     User delete(int id);
+
+    void multiInsert(List<User> users);
 }

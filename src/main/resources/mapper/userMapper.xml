@@ -2,14 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.wangj.dao.UserMapper">
-    <!--<resultMap id="user" type="com.wangj.dao.entity.User">
+    <resultMap id="user" type="com.wangj.dao.entity.User">
         <id property="id" column="id" jdbcType="INTEGER"></id>
         <result property="name" column="name" jdbcType="VARCHAR"></result>
         <result property="age" column="age" jdbcType="INTEGER"></result>
         <result property="version" column="version" jdbcType="INTEGER"></result>
-    </resultMap>-->
+    </resultMap>
 
-    <select id="getOne" resultType="com.wangj.dao.entity.User" >
+    <select id="getOne" resultMap="user" >
         SELECT id,name,age,version FROM user where id = #{id};
     </select>
 
@@ -34,4 +34,25 @@
     <delete id="delete">
         delete from user where id=#{id}
     </delete>
+
+    <!--<insert id="multiInsert" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+        insert into user(name,age,version) values
+        <foreach collection="list" item="user" index="index" separator=",">
+        (
+        #{user.name,jdbcType=VARCHAR},
+        #{user.age,jdbcType=INTEGER},
+        #{user.version,jdbcType=INTEGER}
+        )
+        </foreach>
+    </insert>-->
+    <insert id="multiInsert" parameterType="java.util.List">
+        insert into user(name,age,version) values
+        <foreach collection="list" item="user" index="index" separator=",">
+            (
+            #{user.name,jdbcType=VARCHAR},
+            #{user.age,jdbcType=INTEGER},
+            #{user.version,jdbcType=INTEGER}
+            )
+        </foreach>
+    </insert>
 </mapper>
